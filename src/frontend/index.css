@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   FONTS — self-hosted from /assets/fonts/
+   ============================================================ */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   DESIGN TOKENS — OKLCH (raw L C H values, no oklch() wrapper)
+   Palette: warm cream + charcoal + terracotta + dusty rose
+   ============================================================ */
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Base */
+    --background: 0.975 0.008 75;
+    --foreground: 0.22 0.025 45;
+
+    /* Card */
+    --card: 0.99 0.004 75;
+    --card-foreground: 0.22 0.025 45;
+
+    /* Popover */
+    --popover: 0.99 0.004 75;
+    --popover-foreground: 0.22 0.025 45;
+
+    /* Primary — terracotta/burnt coral */
+    --primary: 0.54 0.14 38;
+    --primary-foreground: 0.98 0.006 75;
+
+    /* Secondary — dusty rose-beige */
+    --secondary: 0.93 0.02 55;
+    --secondary-foreground: 0.38 0.04 45;
+
+    /* Muted */
+    --muted: 0.94 0.01 75;
+    --muted-foreground: 0.52 0.02 55;
+
+    /* Accent — warm gold-amber */
+    --accent: 0.88 0.06 65;
+    --accent-foreground: 0.28 0.04 45;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Border / Input */
+    --border: 0.88 0.016 65;
+    --input: 0.88 0.016 65;
+    --ring: 0.54 0.14 38;
+
+    /* Charts */
+    --chart-1: 0.54 0.14 38;
+    --chart-2: 0.64 0.12 50;
+    --chart-3: 0.74 0.10 75;
+    --chart-4: 0.42 0.10 55;
+    --chart-5: 0.68 0.15 30;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.01 70;
+    --sidebar-foreground: 0.22 0.025 45;
+    --sidebar-primary: 0.54 0.14 38;
+    --sidebar-primary-foreground: 0.98 0.006 75;
+    --sidebar-accent: 0.93 0.02 55;
+    --sidebar-accent-foreground: 0.38 0.04 45;
+    --sidebar-border: 0.88 0.016 65;
+    --sidebar-ring: 0.54 0.14 38;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* ============================================================
+   EDITORIAL DECORATIVE ELEMENTS
+   ============================================================ */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain-overlay {
+    position: relative;
+  }
+
+  .grain-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
